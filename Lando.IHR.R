@@ -1,3 +1,8 @@
+library(pracma)
+library(flexsurv)
+library(purrr)
+library(tidyverse)
+
 interp <- function(data, x_out) {
   # Sort data and calculate the empirical CDF
   sorted_data <- sort(data)
@@ -87,4 +92,40 @@ Lando_IHR <- function(a,n,m,p) {
   
   return(data.frame(a=a,IHR_power = v1, DHR_power = v2))
 }
-#Lando_IHR(a = 1.5, n = 50, m = 5, p = 1)
+
+
+a <- seq(1, 2, 0.1)
+n <- 25
+p <- 1
+
+# Define the different 'm' values
+m_values <- c(1, 5, 10, 20)
+
+# Initialize an empty data frame for results
+results <- data.frame()
+
+# Loop through each value of m, generating data and appending to results
+for (m in m_values) {
+  temp_data <- do.call(rbind, lapply(a, function(i) Lando_IHR(i, n, m, p)))
+  temp_data <- as.data.frame(temp_data)  # Ensure it's a data frame
+  temp_data <- mutate(temp_data, source = paste("m =", m))  # Add source column for each m value
+  colnames(temp_data) <- colnames(results)  # Ensure column names are consistent
+  results <- rbind(results, temp_data)  # Append to results
+}
+
+
+# Convert columns
+colnames(results) <- c("a", "IHR_power", "DHR_power", "source")
+
+# Plot the power of convexity and concavity
+ggplot(results, aes(x = a, y = IOR_power, shape = factor(source))) +
+  geom_line() +
+  geom_point() +
+  labs(title = "Power of IHR Test for n=25",
+       x = "Shape parameter 'a'",
+       y = "Power") +
+  theme_minimal() +
+  ylim(0, 1) +
+  xlim(1, 2) +
+  theme(legend.position = "right") +
+  scale_shape_manual(name = "Source", values = c(1, 3, 4, 5, 16))
