@@ -12,6 +12,8 @@ Below is a description of each file and its role in reproducing the results pres
 ### 📂 `Lando.DRHR.R`  
 **Lando.DRHR.R** evaluates and visualizes the performance of the proposed **Decreasing Hazard Rate (DRHR)}** tests under a negative **Weibull distribution** $W(a, 1)$, where the shape parameter $a$ lies within the interval $[1, 2]$. The script examines various values of the parametre $m \in \{1, 5, 10, 20\}$. The rejection rates are plotted against the shape parameter $a$, which corresponds to the DRHR alternatives within the specified range. To obtain the different panels in **Figure 1**, you need to specify sample sizes $n \in \{25, 50, 100, 200\}$.
 
+### 📂 `Lando.IOR.R`  
+**Lando.IOR.R** evaluates and visualizes the performance of the proposed **Increasing Order Rate (IOR)** tests under a *Log-logistic distribution* $L(a, 1)$, where the shape parameter $a$ lies within the interval $[1, 2]$. The script examines various values of the parameter $m \in \{2, 5, 10, 20\}$. The rejection rates are plotted against the shape parameter $a$, which corresponds to the IOR alternatives within the specified range. To obtain the different panels in **Figure 2**, you need to specify sample sizes $n \in \{25, 50, 100, 200\}$.
 
 
 ### 📂 `asymptotic_properties.R`  
