@@ -16,32 +16,5 @@ Below is a description of each file and its role in reproducing the results pres
 **Lando.IOR.R** evaluates and visualizes the performance of the proposed **Increasing Order Rate (IOR)** tests under a *Log-logistic distribution* $L(a, 1)$, where the shape parameter $a$ lies within the interval $[1, 2]$. The script examines various values of the parameter $m \in \{2, 5, 10, 20\}$. The rejection rates are plotted against the shape parameter $a$, which corresponds to the IOR alternatives within the specified range. To obtain the different panels in **Figure 2**, you need to specify sample sizes $n \in \{25, 50, 100, 200\}$.
 
 
-### 📂 `asymptotic_properties.R`  
-- Evaluates the asymptotic distribution of the test statistic.  
-- Includes theoretical validation and Monte Carlo approximations.  
-
-### 📂 `power_comparison.R`  
-- Compares the power of the proposed test against existing methods.  
-- Includes visualization and summary tables of rejection rates.  
-
-### 📂 `real_data_application.R`  
-- Applies the methodology to real-world datasets used in the manuscript.  
-- Demonstrates practical use cases and interpretations of results.  
-
-### 📂 `utils.R`  
-- Contains helper functions used across multiple scripts (e.g., kernel smoothing, numerical integration).  
-
-## Usage Instructions  
-
-1. Clone the repository:  
-   ```bash
-   git clone https://github.com/your-repo-name.git
-   cd your-repo-name
-
-Below is a description of each file and its role in reproducing the results presented in the paper:
-
-📂 data_generation.R
-Generates synthetic datasets under the null and alternative hypotheses.
-Implements sampling procedures for distributions satisfying the convex ordering property.
-📂 test_statistic.R
-
+### 📂 `Lando.IHR.R`  
+**Lando.IHR.R** evaluates and visualizes the performance of the proposed \textbf{Increasing Hazard Rate (IHR)} tests, comparing them to the performance of the P&P tests under a \textbf{Weibull distribution} $W(a, 1)$, where the shape parameter $a$ lies within the interval $[1, 2]$. The script examines various values of the parameter $m \in \{2, 5, 10, 20\}$. The rejection rates for both the IHR tests and P&P tests are plotted against the shape parameter $a$, which corresponds to the IHR alternatives within the specified range. To obtain the different panels in \textbf{Figure 3}, you need to specify sample sizes $n \in \{25, 50, 100, 200\}$.
