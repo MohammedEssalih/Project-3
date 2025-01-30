@@ -7,11 +7,12 @@ This repository contains the **R codes** used to generate the simulated results 
 Below is a description of each file and its role in reproducing the results presented in the paper:  
 
 ### 📂 `Best p.R`  
-**Best p.R** determines the optimal value of $p$ (order of the $L_p$) that maximizes the rejection rates for testing the Increasing Hazard Rate (**IHR**) hypothesis. Specifically, it evaluates the performance of the test when the alternative distribution follows a Weibull distribution $W(1.5, 1)$. By varying the sample size $n$ and the parametre $m$, the code computes the rejection rates, which are presented in **Table 1** of the manuscript. This allows for identifying the $L_p$ norm that yields the best test performance under the given conditions.
+**Best p.R** determines the optimal value of $p$ (order of the $L^p$) that maximizes the rejection rates for testing the Increasing Hazard Rate (**IHR**) hypothesis. Specifically, it evaluates the performance of the test when the alternative distribution follows a Weibull distribution $W(1.5, 1)$. By varying the sample size $n$ and the parametre $m$, the code computes the rejection rates, which are presented in **Table 1** of the manuscript. This allows for identifying the $L^p$ norm that yields the best test performance under the given conditions.
 
-### 📂 `test_statistic.R`  
-- Computes the proposed test statistics based on expected order statistics.  
-- Implements key mathematical formulations used in hypothesis testing.  
+### 📂 `Lando.DRHR.R`  
+**Lando.DRHR.R** evaluates and visualizes the performance of the proposed **Decreasing Hazard Rate (DRHR)}** tests under a negative **Weibull distribution** $W(a, 1)$, where the shape parameter $a$ lies within the interval $[1, 2]$. The script examines various values of the parametre $m \in \{1, 5, 10, 20\}$. The rejection rates are plotted against the shape parameter $a$, which corresponds to the DRHR alternatives within the specified range. To obtain the different panels in **Figure 1**, you need to specify sample sizes $n \in \{25, 50, 100, 200\}$.
+
+
 
 ### 📂 `asymptotic_properties.R`  
 - Evaluates the asymptotic distribution of the test statistic.  
