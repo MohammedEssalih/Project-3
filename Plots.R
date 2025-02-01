@@ -1,16 +1,3 @@
-# Load necessary libraries
-library(ggplot2)
-library(readr)  # For reading CSV files
-library(dplyr)  # For data manipulation
-library(tidyverse)
-# Set the working directory
-setwd("C:/Users/utente/Desktop/Project 3/Project 3")
-
-# Load and preprocess the data
-results <- read_csv("Finall.DOR_200.csv") %>% 
-  select(-1)  # Remove the first column
-head(results)
-
 
 
 ggplot(results, aes(x = a, y = IOR_power, color = source, linetype = source)) +
